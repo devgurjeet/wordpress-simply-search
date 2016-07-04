@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Simply Search.
 	Plugin URI: 
-	Description: This is template for creating Plugins.
+	Description: Simply Search improves WordPress default search functionality. It also offers the ability to select custom post types to search and exclude specific pages and post types.
 	Version: 1.0.0
 	Author: Gurjeet singh.
 	Author URI:
