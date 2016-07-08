@@ -15,11 +15,15 @@ class SimplySearch {
     //** Constructor **//
     function __construct() {
 
+        /* Add Css accect */
         add_action( 'admin_enqueue_scripts',  array(&$this, 'loadAssectCss') );
-        // add_action( 'admin_enqueue_scripts',  array(&$this, 'loadAdminAssects') );
 
         //** Register menu. **//
         add_action('admin_menu', array(&$this, 'register_plugin_menu') );
+
+        /* add serch*/
+        add_filter('pre_get_posts',array(&$this, 'SearchFilter') );
+
     }
 
     //** Register menu Item. **//
@@ -27,14 +31,10 @@ class SimplySearch {
             add_menu_page( 'Simply Search', 'Simply Search', 'manage_options', 'simplysearch', array(&$this, 'admin_page'), 'dashicons-search', 26 );
     }
 
-    function loadAssectCss( ){     
-      
+    function loadAssectCss( ){      
         //** Load  Styling. **//        
        wp_enqueue_style( 'simply-search-style-css', plugins_url( '/css/style.css', __FILE__ ) );
-
     }
-
-
 
     /*function to show the page. */
     function admin_page(){
@@ -49,16 +49,12 @@ class SimplySearch {
             }else{              
                 echo     '<h1 class="error_message">Setting not saved.</h1>';                
             }
-            
-
         }
         
         ?> 
         <div class="ss_cotainer">      
-            <form action="" method="POST" class="ss_form">      
-                
-                <h1 class="ss_h1">Simply Search Settings</h1>
-                
+            <form action="" method="POST" class="ss_form">                
+                <h1 class="ss_h1">Simply Search Settings</h1>                
                 <fieldset class="ss_fieldset">
                     <!-- <legend><span class="number">2</span>Your profile</legend> -->
                     <label class="ss_label" for="post_block_section"><strong>Post Types</strong></label>
@@ -69,9 +65,33 @@ class SimplySearch {
                 <button class="ss_button" type="submit">Save Settings</button>
             </form>
         </div>
-        <?php     
-        
+        <?php        
     }
+
+    /** functionality to filter search results.  **/
+    function SearchFilter( $query ){
+
+        if ($query->is_search) {
+
+            $posts_data       = get_option( 'ss_post_filter',true);
+            $posts_data_array = explode(',', $posts_data);
+            $types            = array();
+
+            foreach ($posts_data_array as $value ) {
+                $item = trim($value);
+                if( $value !== ''){
+                    $types[] = $item;
+                }
+            }
+
+            file_put_contents(dirname(__FILE__)."/ser.log", print_r($types, true), FILE_APPEND);
+            if(!empty($posts_data_array)){
+                $query->set('post_type', $types );
+            }
+                
+            return $query;
+        }
+    }   
 }
 
 /*  create plugin object. */
