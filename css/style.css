@@ -1,0 +1,130 @@
+.ss_cotainer {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+
+}
+
+.ss_form {
+  max-width: 300px;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+.ss_h1 {
+  margin: 10px 0 30px 0;
+  text-align: center;
+}
+
+.ss_form input[type="text"],
+.ss_form input[type="password"],
+.ss_form input[type="date"],
+.ss_form input[type="datetime"],
+.ss_form input[type="email"],
+.ss_form input[type="number"],
+.ss_form input[type="search"],
+.ss_form input[type="tel"],
+.ss_form input[type="time"],
+.ss_form input[type="url"],
+.ss_form  textarea,
+.ss_form  select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+.ss_form  input[type="radio"],
+.ss_form  input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+.ss_form  select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.ss_form  button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+  cursor: pointer; 
+}
+
+.ss_form  fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+.ss_form  legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.ss_form  label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ss_form  label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.ss_form .number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+.success_message{
+  color: #4bc970;
+  max-width: 480px;
+  margin: 10px auto;
+  background: rgba(255,255,255,.5);
+  padding: 20px;
+  text-align: center;
+}
+.error_message{
+  color: #FF0000;
+  max-width:480px;
+  margin:10px auto;
+  background:rgba(255,255,255,.5);
+  padding:20px;
+  text-align:center 
+}
+
+@media screen and (min-width: 480px) {
+
+  .ss_form {
+    max-width: 480px;
+  }
+
+}
